@@ -46,6 +46,8 @@ int main() {
 
   const auto str_buff = buffer.str();
 
+  printf("2015d1\n");
+
   // Part 1
   {
     auto t1 = high_resolution_clock::now();

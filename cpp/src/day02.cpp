@@ -22,7 +22,8 @@ std::vector<std::string> split_on(const std::string &str, char delimeter) {
 } // namespace
 
 struct box {
-  box(int length, int width, int height) : l(length), w(width), h(height) {}
+  explicit box(int length, int width, int height)
+      : l(length), w(width), h(height) {}
   int l = 0;
   int w = 0;
   int h = 0;
@@ -84,6 +85,8 @@ int main() {
     const auto h = std::stoi(lwh[2]);
     box_vec.push_back(new box(l, w, h));
   }
+
+  printf("2015d2\n");
 
   // Part 1
   {
