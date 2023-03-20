@@ -1,18 +1,14 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-  name = "rust-env";
+  name = "cpp-env";
   nativeBuildInputs = [
-    rustc cargo
-
-    # Example Build-time Additional Dependencies
-    pkgconfig
+    clang
+    clang-tools
+    cmake
   ];
   buildInputs = [
-    # Example Run-time Additional Dependencies
-    openssl
+    boost
+    poco
   ];
-
-  # Set Environment Variables
-  RUST_BACKTRACE = 1;
 }
