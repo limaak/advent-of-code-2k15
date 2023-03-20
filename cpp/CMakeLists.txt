@@ -7,5 +7,9 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic-errors -Werror"
 # project
 project(aoc2015)
 
+find_package(Boost)
+find_package(poco)
+
 # execs
 add_executable(day01 src/day01.cpp)
+add_executable(day02 src/day02.cpp)

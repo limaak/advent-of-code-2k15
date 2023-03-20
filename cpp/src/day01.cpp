@@ -3,6 +3,10 @@
 #include <fstream>
 #include <sstream>
 
+namespace {
+constexpr auto input_file_path = "../data/day01.txt";
+} // namespace
+
 std::int32_t part_1(const std::string &buffer) {
   auto count = 0;
   for (size_t i = 0; i < buffer.size(); ++i) {
@@ -35,7 +39,7 @@ int main() {
   using std::chrono::high_resolution_clock;
   using std::chrono::milliseconds;
 
-  std::ifstream f("../data/day01.txt");
+  std::ifstream f(input_file_path);
   std::stringstream buffer;
 
   buffer << f.rdbuf();
