@@ -68,5 +68,7 @@ int main() {
     printf("part 2: %d [%lldms]\n", result, total_time.count());
   }
 
+  // tests
+
   return 0;
 }
