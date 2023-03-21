@@ -6,6 +6,8 @@ stdenv.mkDerivation {
     clang
     clang-tools
     cmake
+    stack
+    git
   ];
   buildInputs = [
     boost
