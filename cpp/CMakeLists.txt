@@ -13,3 +13,4 @@ find_package(poco)
 # execs
 add_executable(day01 src/day01.cpp)
 add_executable(day02 src/day02.cpp)
+add_executable(day02_short src/day02_short.cpp)

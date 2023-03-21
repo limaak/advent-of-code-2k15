@@ -97,7 +97,7 @@ int main() {
   {
     auto t1 = high_resolution_clock::now();
     auto result = part_1(box_vec);
-    auto t2 = high_resolaution_clock::now();
+    auto t2 = high_resolution_clock::now();
 
     auto total_time = duration_cast<milliseconds>(t2 - t1);
     printf("part 1: %d [%lldms]\n", result, total_time.count());

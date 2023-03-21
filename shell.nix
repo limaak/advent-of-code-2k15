@@ -8,6 +8,8 @@ stdenv.mkDerivation {
     cmake
     stack
     git
+    time
+    python3
   ];
   buildInputs = [
     boost
