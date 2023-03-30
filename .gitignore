@@ -9,8 +9,6 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
-day01
-day02
-day02_short
-day03
-day04
+
+day[0-2][0-9]
+day[0-2][0-9]_*
