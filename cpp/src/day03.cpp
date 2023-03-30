@@ -137,26 +137,26 @@ struct position
     {
         y -= 1;
     }
-    std::tuple<int, int> to_tuple() const
+    std::tuple<std::int32_t, std::int32_t> to_tuple() const
     {
         return std::make_tuple(x, y);
     }
 
   private:
-    int x = 0;
-    int y = 0;
+    std::int32_t x = 0;
+    std::int32_t y = 0;
 };
 
-int main()
+std::tuple<std::int32_t, std::int32_t> part_1_2()
 {
-    std::set<std::tuple<int, int>> visited_1 = {std::make_tuple(0, 0)};
-    std::set<std::tuple<int, int>> visited_2 = {std::make_tuple(0, 0)};
+    std::set<std::tuple<std::int32_t, std::int32_t>> visited_1 = {std::make_tuple(0, 0)};
+    std::set<std::tuple<std::int32_t, std::int32_t>> visited_2 = {std::make_tuple(0, 0)};
 
     position *santa = new position();
     position *non_robo_santa = new position();
     position *robo_santa = new position();
 
-    auto get_santa = [non_robo_santa, robo_santa](int i) {
+    auto get_santa = [non_robo_santa, robo_santa](auto i) {
         if (i == 0)
             return non_robo_santa;
         else
@@ -198,8 +198,25 @@ int main()
         visited_2.insert(robo_santa->to_tuple());
     }
 
-    printf("p1: %lu\n", visited_1.size());
-    printf("p2: %lu\n", visited_2.size());
+    return std::make_tuple(visited_1.size(), visited_2.size());
+}
+
+int main()
+{
+    using std::chrono::duration;
+    using std::chrono::duration_cast;
+    using std::chrono::high_resolution_clock;
+    using std::chrono::milliseconds;
+
+    auto t1 = high_resolution_clock::now();
+    auto result = part_1_2();
+    auto t2 = high_resolution_clock::now();
+
+    printf("2015d3\n");
+
+    auto total_time = duration_cast<milliseconds>(t2 - t1);
+    printf("part 1: %d [%lldms]\n", std::get<0>(result), total_time.count());
+    printf("part 2: %d [%lldms]\n", std::get<1>(result), total_time.count());
 
     return 0;
 }

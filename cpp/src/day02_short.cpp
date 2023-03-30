@@ -2,12 +2,11 @@
 #include <iostream>
 #include <string>
 
-int main()
+std::tuple<std::int32_t, std::int32_t> part_1_2()
 {
-    int surface = 0;
-    int ribbon = 0;
+    auto surface = 0;
+    auto ribbon = 0;
 
-    printf("2015d2_short\n");
     for (std::string line; std::getline(std::cin, line);)
     {
         std::size_t pos = 0;
@@ -26,8 +25,25 @@ int main()
         ribbon += 2 * (x + y) + x * y * z;
     }
 
-    printf("part 1: %d\n", surface);
-    printf("part 2: %d\n", ribbon);
+    return std::make_tuple(surface, ribbon);
+}
+
+int main()
+{
+    using std::chrono::duration;
+    using std::chrono::duration_cast;
+    using std::chrono::high_resolution_clock;
+    using std::chrono::milliseconds;
+
+    auto t1 = high_resolution_clock::now();
+    auto result = part_1_2();
+    auto t2 = high_resolution_clock::now();
+
+    printf("2015d2short\n");
+
+    auto total_time = duration_cast<milliseconds>(t2 - t1);
+    printf("part 1: %d [%lldms]\n", std::get<0>(result), total_time.count());
+    printf("part 2: %d [%lldms]\n", std::get<1>(result), total_time.count());
 
     return 0;
 }
