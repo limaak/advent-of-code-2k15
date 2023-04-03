@@ -4,10 +4,6 @@
 #include <string>
 #include <unordered_map>
 
-// TODO:
-// - part 2
-// - try to rewrite day 5 using regexes
-
 namespace
 {
 const std::unordered_map<char, bool> allowed_chars = {
