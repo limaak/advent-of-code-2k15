@@ -11,8 +11,5 @@ stdenv.mkDerivation {
     time
     python3
   ];
-  buildInputs = [
-    boost
-    poco
-  ];
+  buildInputs = [];
 }
