@@ -10,5 +10,5 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
-day[0-2][0-5]
-day[0-2][0-5]_*
+day[0-2][0-9]
+day[0-2][0-9]_*

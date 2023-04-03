@@ -47,6 +47,42 @@ bool is_string_valid_1(const std::string &str)
     return (vowel_count >= 3 && repeating_count >= 1);
 }
 
+bool is_string_valid_2(const std::string &str)
+{
+    bool has_in_between = false;
+    bool has_two_pairs = false;
+
+    std::string previous_pair = "";
+    std::unordered_map<std::string, int> pair_count;
+
+    for (size_t i = 0; i < str.size() - 1; ++i)
+    {
+        const auto pair = str.substr(i, 2);
+
+        if (previous_pair != pair || previous_pair == str.substr(i + 1, 2) /* i.e aaaa */)
+        {
+            pair_count[pair] += 1;
+            has_two_pairs = (pair_count[pair] == 2);
+        }
+
+        if (has_two_pairs)
+            break;
+
+        previous_pair = pair;
+    }
+
+    for (size_t i = 0; i < str.size() - 2; ++i)
+    {
+        const auto triple = str.substr(i, 3);
+        has_in_between = (triple[0] == triple[2]);
+
+        if (has_in_between)
+            break;
+    }
+
+    return has_in_between && has_two_pairs;
+}
+
 int main()
 {
     std::int32_t count_1 = 0;
@@ -54,7 +90,7 @@ int main()
     for (std::string line; std::getline(std::cin, line);)
     {
         count_1 += is_string_valid_1(line);
-        // count_2 += is_string_valid_2(line);
+        count_2 += is_string_valid_2(line);
     }
 
     printf("part 1: %d\n", count_1);
