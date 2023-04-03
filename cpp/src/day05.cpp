@@ -83,6 +83,7 @@ int main()
 {
     std::int32_t count_1 = 0;
     std::int32_t count_2 = 0;
+
     for (std::string line; std::getline(std::cin, line);)
     {
         count_1 += is_string_valid_1(line);
