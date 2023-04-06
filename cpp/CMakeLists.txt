@@ -18,6 +18,7 @@ add_executable(day03 src/day03.cpp)
 add_executable(day04 src/day04.cpp)
 add_executable(day05 src/day05.cpp)
 add_executable(day05_regex src/day05_regex.cpp)
+add_executable(day06 src/day06.cpp)
 
 # links
 target_link_libraries(day04 PUBLIC md5_lib)
