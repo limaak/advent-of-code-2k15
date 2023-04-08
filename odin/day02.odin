@@ -21,5 +21,5 @@ main :: proc() {
 		result += 2 * l * w + 2 * w * h + 2 * h * l + min(l * w, w * h, h * l)
 	}
 
-	fmt.printf("Part 1: %d\n", result);
+	fmt.printf("Part 1: %d\n", result)
 }
